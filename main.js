@@ -85,3 +85,18 @@ document.querySelectorAll('.side-menu .random-background span').forEach(button =
         localStorage.setItem('random_background', e.target.textContent);
     })
 })
+
+/* fill progress bars */
+window.onscroll = function() {
+    var skills = document.querySelector('.skills');
+    if(window.scrollY + window.innerHeight > skills.offsetTop + skills.offsetHeight - 50) {
+        document.querySelectorAll('.skills .skill-element .skill-progress .progress-done').forEach(div => {
+            div.style.width = div.dataset.progress;
+            /* adding progress text and suitable styling */
+            div.appendChild(document.createTextNode(`${div.dataset.progress}`));
+            div.style.setProperty('padding-right', '7px');
+        });
+        window.onscroll = '';
+    }
+}
+
