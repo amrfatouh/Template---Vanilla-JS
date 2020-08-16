@@ -8,7 +8,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
 }
-h2 {
+h2,
+h3 {
     margin: 0;
     color: var(--main-color);
 }
@@ -328,4 +329,95 @@ p {
     right: -12.5px;
     font-size: 16;
     cursor: pointer;
+}
+
+.timeline-header {
+    text-align: center;
+    margin: 50px 0 20px;
+}
+.timeline {
+    margin-bottom: 50px;
+    position: relative;
+    text-align: center;
+}
+.timeline .year {
+    background-color: var(--main-color);
+    display: inline-block;
+    padding: 3px 7px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position: relative;
+}
+/* putting a margin-top for the rest of the years */
+.timeline .year:not(:nth-child(2)) {
+    margin-top: 35px;
+}
+.timeline .left {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.timeline .right {
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+}
+.timeline .timeline-entry {
+    width: 48%;
+    border: 2px solid var(--main-color);
+    padding: 5px 10px;
+    position: relative;
+    margin-bottom: 15px;
+}
+.timeline .timeline-entry h3 {
+    margin-bottom: 7px;
+}
+.timeline .timeline-entry p {
+    text-align: justify;
+    line-height: 1.5;
+}
+/* creating the line of the timeline */
+.timeline .timeline-line {
+    width: 10px;
+    height: 100%;
+    background-color: var(--main-color);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* creating the circle of the timeline */
+.timeline .left:before,
+.timeline .right:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 5px solid var(--main-color);
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* creating the arrow from timeline entry to the timeline circle */
+.timeline .left:after,
+.timeline .right:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-width: 11px;
+    border-style: solid;
+    position: absolute;
+    top: 20px;
+}
+.timeline .left:after {
+    border-color: transparent transparent transparent var(--main-color);
+    left: calc(50% - 20px);
+}
+.timeline .right:after {
+    border-color: transparent var(--main-color) transparent transparent;
+    right: calc(50% - 20px);
 }
