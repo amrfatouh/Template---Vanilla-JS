@@ -100,3 +100,16 @@ window.onscroll = function() {
     }
 }
 
+/* handle clicks on gallery items */
+document.querySelectorAll('.gallery .gallery-images .gallery-item').forEach(div => {
+    div.addEventListener('click', function() {
+        document.querySelector('.gallery-overlay').style.display = 'block';
+        document.querySelector('.view-gallery-item h2').textContent = div.children[0].alt;
+        document.querySelector('.view-gallery-item img').src = div.children[0].src;
+        document.querySelector('.view-gallery-item').style.display = 'flex';
+        document.querySelector('.view-gallery-item .close-gallery-overlay').addEventListener('click', function() {
+            document.querySelector('.gallery-overlay').style.display = 'none';
+            document.querySelector('.view-gallery-item').style.display = 'none';
+        })
+    })
+})
