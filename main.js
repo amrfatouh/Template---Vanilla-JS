@@ -10,7 +10,7 @@ var imgArray = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg',];
 var randomBackgroundInterval = setInterval(randomizeBackgrounds, INTERVAL_TIME);
 function randomizeBackgrounds() {
     var random = Math.floor(Math.random() * imgArray.length);
-    var div = document.querySelector('.background .back-image').style.backgroundImage = `url("assets/images/${imgArray[random]}")`;
+    var div = document.querySelector('.background .back-image').style.backgroundImage = `url("assets/images/background/${imgArray[random]}")`;
 }
 
 /* get colors from local storage */
