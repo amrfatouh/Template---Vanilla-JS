@@ -113,3 +113,55 @@ document.querySelectorAll('.gallery .gallery-images .gallery-item').forEach(div 
         })
     })
 })
+
+/* show navigation bullets tool tips */
+document.querySelectorAll('.nav-bullets ul li').forEach(li => {
+    li.addEventListener('mouseover', function() {
+        li.children[0].style.display = 'block';
+    });
+});
+document.querySelectorAll('.nav-bullets ul li').forEach(li => {
+    li.addEventListener('mouseout', function() {
+        li.children[0].style.display = 'none';
+    });
+});
+
+/* responding to clicking on navigation bullets */
+document.querySelectorAll('.nav-bullets ul li').forEach(li => {
+    li.addEventListener('click', function() {
+        document.querySelector(li.dataset.element).scrollIntoView({
+            behavior: "smooth"
+        })
+    });
+});
+
+/* navigation bullets local storage */
+if (localStorage.getItem('nav_bullets_option')) {
+    if (localStorage.getItem('nav_bullets_option') === 'yes') {
+        document.querySelector('.nav-bullets').style.display = 'block';
+        toggleActive(Array.from(document.querySelectorAll('.side-menu .nav-bullets-option span')).find(span => span.textContent === 'yes')); /* find() function doesn't work with NodeLists or HTML collections */
+    } else {
+        document.querySelector('.nav-bullets').style.display = 'none';
+        toggleActive(Array.from(document.querySelectorAll('.side-menu .nav-bullets-option span')).find(span => span.textContent === 'no'));
+    }
+}
+
+/* navigation bullets show/hide options */
+document.querySelectorAll('.side-menu .nav-bullets-option span').forEach(span => {
+    span.addEventListener('click', function(event) {
+        if(event.target.textContent === 'yes') {
+            document.querySelector('.nav-bullets').style.display = 'block';
+            localStorage.setItem('nav_bullets_option', 'yes');
+        } else {
+            document.querySelector('.nav-bullets').style.display = 'none';
+            localStorage.setItem('nav_bullets_option', 'no');
+        }
+        toggleActive(event.target);
+    })
+})
+function toggleActive(target) {
+    Array.from(target.parentNode.children).forEach(child => { /* u should change the children HTML collection into array before using 'forEach' loop */
+        child.classList.remove('active');
+    });
+    target.classList.add('active');
+}
