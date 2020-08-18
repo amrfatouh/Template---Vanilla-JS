@@ -165,3 +165,12 @@ function toggleActive(target) {
     });
     target.classList.add('active');
 }
+
+/* reset to default button */
+document.querySelector('button.reset-to-default').onclick = function() {
+    localStorage.removeItem('background_color');
+    localStorage.removeItem('background_to_be_loaded');
+    localStorage.removeItem('random_background');
+    localStorage.removeItem('nav_bullets_option');
+    window.location.reload();
+}

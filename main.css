@@ -122,6 +122,86 @@ p {
 .side-menu .nav-bullets-option span.active {
     opacity: 1;
 }
+.side-menu .reset-to-default {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 20px;
+    background: none;
+    border: 3px solid var(--main-color);
+    color: var(--main-color);
+    font-weight: bold;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.nav-bullets {
+    position: fixed;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.nav-bullets ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.nav-bullets ul li {
+    width: 15;
+    height: 15px;
+    background-color: #fff;
+    border: 2px solid var(--main-color);
+    margin-bottom: 10px;
+    border-radius: 50%;
+    position: relative;
+    transition: all .3s;
+    cursor: pointer;
+}
+.nav-bullets ul li:hover{
+    background-color: var(--main-color);
+}
+.nav-bullets ul li .tool-tip {
+    position: absolute;
+    font-size: 15px;
+    text-align: center;
+    width: 90px;
+    height: 20px;
+    background-color: var(--main-color);
+    border-radius: 7px 0 0 7px;
+    padding: 1px 0;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -103px;
+    color: #fff;
+    display: none;
+}
+.nav-bullets ul li .tool-tip .arrow {
+    width: 5px;
+    height: 5px;
+    border-width: 10px;
+    border-color: transparent transparent transparent var(--main-color);
+    border-style: solid;
+    position: absolute;
+    top: 0;
+    left: 90;
+}
+
+/* .contact-us-image {
+    background-image: url('assets/images/contact-us.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.contact-us-image .overlay {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+} */
 
 .navbar {
     z-index: 1;
@@ -509,54 +589,54 @@ p {
     margin: 0;
 }
 
-.nav-bullets {
-    position: fixed;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    z-index: 1;
+.contact-us {
+    margin: 50px 0;
 }
-.nav-bullets ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.contact-us h2 {
+    margin-bottom: 20px;
 }
-.nav-bullets ul li {
-    width: 15;
-    height: 15px;
-    background-color: #fff;
-    border: 2px solid var(--main-color);
-    margin-bottom: 10px;
-    border-radius: 50%;
-    position: relative;
-    transition: all .3s;
-    cursor: pointer;
+.contact-us .contact-form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-.nav-bullets ul li:hover{
-    background-color: var(--main-color);
+.contact-us .contact-form form .left {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.nav-bullets ul li .tool-tip {
-    position: absolute;
-    font-size: 15px;
+.contact-us .contact-form form .left input {
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 3px 10px;
+}
+.contact-us .contact-form form .right {
+    flex: 1;
     text-align: center;
-    width: 90px;
-    height: 20px;
-    background-color: var(--main-color);
-    border-radius: 7px 0 0 7px;
-    padding: 1px 0;
-    top: 50%;
-    transform: translateY(-50%);
-    left: -103px;
-    color: #fff;
-    display: none;
 }
-.nav-bullets ul li .tool-tip .arrow {
-    width: 5px;
-    height: 5px;
-    border-width: 10px;
-    border-color: transparent transparent transparent var(--main-color);
-    border-style: solid;
-    position: absolute;
-    top: 0;
-    left: 90;
+.contact-us .contact-form form .right textarea {
+    width: 80%;
+    height: 123px;
+    margin-bottom: 20px;
+    padding: 3px 10px;
+}
+.contact-us .contact-form form .right input[type='submit'] {
+    display: block;
+    margin: auto;
+    padding: 3px 10px;
+    background-color: var(--main-color);
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+.contact-us .contact-form form input:not([type='submit']):focus,
+.contact-us .contact-form form textarea:focus {
+    outline: 1px solid var(--main-color);
+    box-shadow: 0 0 5px 1px var(--main-color) inset;
+}
+.contact-us .contact-form form input:not([type='submit']):focus::-webkit-input-placeholder,
+.contact-us .contact-form form textarea:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: .3s;
 }
