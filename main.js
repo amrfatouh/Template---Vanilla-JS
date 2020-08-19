@@ -174,3 +174,17 @@ document.querySelector('button.reset-to-default').onclick = function() {
     localStorage.removeItem('nav_bullets_option');
     window.location.reload();
 }
+
+/* links menu button */
+document.querySelector('.navbar .links-menu-button').addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.querySelector('.navbar .links-menu-button .arrow').classList.toggle('active');
+    document.querySelector('.navbar .links ul').classList.toggle('active');
+})
+/* close menu if clicked elsewhere */
+document.addEventListener('click', function(e) {
+    if (e.target !== document.querySelector('.navbar .links-menu-button')) {
+        document.querySelector('.navbar .links-menu-button .arrow').classList.remove('active');
+        document.querySelector('.navbar .links ul').classList.remove('active');
+    }
+})
